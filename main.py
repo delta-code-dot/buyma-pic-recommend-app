@@ -84,7 +84,7 @@ def scraper(url):
             url= url+"_"+str(i)+"/"
             urls_list.append(url)
 
-    urls_list = urls_list[:15]
+    urls_list = urls_list[:5]
     
     items_list=[]
     for url in stqdm(urls_list):
@@ -150,7 +150,7 @@ def scr(title):
     annoy_model.unload()
     trained_model = AnnoyIndex(4096)
     trained_model.load("./result.ann")
-    items = trained_model.get_nns_by_item(len(df), 21, search_k=-1, include_distances=False)
+    items = trained_model.get_nns_by_item(len(df), 6, search_k=-1, include_distances=False)
 
     return df, items
 
@@ -187,7 +187,7 @@ def main():
     st.image(image_target, caption='対象画像',width = 128)
 
 
-    for i in range(20):
+    for i in range(5):
         glob_n = os.path.join(thumb_dir, f"{int(items[i+1])}.jpg")
         img_n = Image.open(glob_n)
         st.image(img_n, caption=f'レコメンド商品NO{i+1}',width = 128)
