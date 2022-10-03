@@ -26,7 +26,6 @@ from keras.applications.imagenet_utils import preprocess_input
 
 from PIL import Image
 import matplotlib.pyplot as plt
-import japanize_matplotlib
 
 
 def atoi(text):
